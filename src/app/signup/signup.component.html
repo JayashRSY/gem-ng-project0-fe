@@ -1,0 +1,30 @@
+<div class="container" style="height: 100vh;">
+    <div class="row d-flex justify-content-center">
+        <form [formGroup]="signupForm" (ngSubmit)="createUser()" class="border rounded p-4 col-xs-12 col-sm-6">
+            <div class="form-group">
+                <label>Name</label>
+                <input formControlName="name" type="text" class="form-control" placeholder="Enter name">
+                <small *ngIf="isSubmit && signupForm.controls['name'].errors">Please enter correct name</small>
+            </div>
+
+            <div class="form-group">
+                <label>Email address</label>
+                <input formControlName="email" type="text" class="form-control" placeholder="Enter email">
+                <small *ngIf="isSubmit && signupForm.controls['email'].errors">Please enter correct email</small>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input formControlName="password" type="password" class="form-control" placeholder="Enter Password">
+                <small *ngIf="isSubmit && signupForm.controls['password'].errors">Please enter valid password </small>
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input formControlName="confirmPassword" type="password" class="form-control" placeholder="Confirm Password">
+                <small *ngIf="signupForm.controls['password'].value != signupForm.controls['confirmPassword'].value">Password do not match</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-2">Sign Up</button>
+
+        </form>
+    </div>
+</div>
